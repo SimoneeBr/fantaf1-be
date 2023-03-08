@@ -1,13 +1,11 @@
 package f1.fantaf1be.controller;
 
 import f1.fantaf1be.entity.Container;
+import f1.fantaf1be.entity.Gare;
 import f1.fantaf1be.service.ContainerService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -20,6 +18,23 @@ public class ContainerController {
     @Autowired
     ContainerService containerService;
 
+    @PostMapping("/updateGara/{id}")
+    public ResponseEntity<Container> updateGara(@PathVariable String id, @RequestBody Container container){
+       Container tmpCont = containerService.getContainer(id);
+
+
+       tmpCont.setName(container.getName());
+       tmpCont.setToken(container.getToken());
+
+        final Container updatConteiner = containerService.createContainer(tmpCont);
+
+        return ResponseEntity.ok(updatConteiner);
+    }
+
+    @DeleteMapping("/delete/{id}")
+    public void deleteById(@PathVariable String id){
+        containerService.deleteContainer(id);
+    }
 
     @GetMapping("/getall/piloti")
     public ResponseEntity<List<Container>> getAllPiloti(){

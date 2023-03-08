@@ -14,8 +14,8 @@ public class ContainerService {
     @Autowired
     ContainerRepository containerRepository;
 
-    public void createContainer(Container container){
-        containerRepository.save(container);
+    public Container createContainer(Container container){
+       return containerRepository.save(container);
     }
 
     public Container getContainer(String id){
