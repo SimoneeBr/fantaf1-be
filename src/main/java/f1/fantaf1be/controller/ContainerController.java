@@ -18,17 +18,10 @@ public class ContainerController {
     @Autowired
     ContainerService containerService;
 
-    @PostMapping("/updateGara/{id}")
-    public ResponseEntity<Container> updateGara(@PathVariable String id, @RequestBody Container container){
-       Container tmpCont = containerService.getContainer(id);
-
-
-       tmpCont.setName(container.getName());
-       tmpCont.setToken(container.getToken());
-
-        final Container updatConteiner = containerService.createContainer(tmpCont);
-
-        return ResponseEntity.ok(updatConteiner);
+    @PostMapping("/update")
+    public ResponseEntity<Container> updateContainer(@RequestBody Container container){
+       Container tmpCont = containerService.updateContainer(container);
+        return ResponseEntity.ok(tmpCont);
     }
 
     @DeleteMapping("/delete/{id}")

@@ -26,8 +26,8 @@ public class ContainerService {
         containerRepository.deleteById(id);
     }
 
-    public void updateContainer(Container container){
-        containerRepository.save(container);
+    public Container updateContainer(Container container){
+        return containerRepository.save(container);
     }
 
     public List<Container> getAllContainers(){
