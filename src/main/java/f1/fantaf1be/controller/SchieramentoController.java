@@ -50,4 +50,18 @@ public class SchieramentoController {
     }
 
 
+    @GetMapping("/countschier")
+    public ResponseEntity<Integer> countSchieramenti(){
+        return ResponseEntity.ok(schieramentoService.countSchieramenti());
+    }
+
+
+    @GetMapping("/deleteall")
+    public ResponseEntity<String> deleteAll(){
+        schieramentoService.deleteAll();
+        return ResponseEntity.ok("Schieramenti eliminati");
+    }
+
+
+
 }

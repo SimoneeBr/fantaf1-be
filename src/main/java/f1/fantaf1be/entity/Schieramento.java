@@ -48,6 +48,7 @@ public class Schieramento {
     private String numeroRitirati;
     private String tempoPole;
     private String giroVeloce;
+    private String autoreGiroVeloce;
 
 
 }

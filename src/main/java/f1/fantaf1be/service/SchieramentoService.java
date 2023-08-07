@@ -42,4 +42,12 @@ public class SchieramentoService {
     public Schieramento getSchieramentoByEmail(String email) {
         return schieramentoRepository.findByEmail(email).orElse(null);
     }
+
+    public Integer countSchieramenti() {
+        return schieramentoRepository.findAll().size();
+    }
+
+    public void deleteAll() {
+        schieramentoRepository.deleteAll();
+    }
 }

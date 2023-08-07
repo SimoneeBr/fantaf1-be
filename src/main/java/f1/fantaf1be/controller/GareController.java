@@ -12,6 +12,7 @@ import java.util.List;
 @RequestMapping("/gare")
 @CrossOrigin(origins = "*")
 public class GareController {
+
     @Autowired
     GareService gareService;
 
