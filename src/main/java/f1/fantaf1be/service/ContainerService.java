@@ -5,7 +5,6 @@ import f1.fantaf1be.repository.ContainerRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.ArrayList;
 import java.util.List;
 
 @Service
@@ -46,7 +45,7 @@ public class ContainerService {
         return containerRepository.findAllByType("motori");
     }
 
-    public void saveCostruttori() {
+    /*public void saveCostruttori() {
         List<Container> costruttori = new ArrayList<>();
         costruttori.add(new Container("1","Red Bull", "costruttori", 100));
         costruttori.add(new Container("2","Ferrari", "costruttori", 90));
@@ -98,5 +97,5 @@ public class ContainerService {
     public void saveShortPiloti(){
         List<Container> shortPiloti = new ArrayList<>();
 
-    }
+    }*/
 }

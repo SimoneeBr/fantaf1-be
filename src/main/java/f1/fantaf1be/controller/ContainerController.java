@@ -1,7 +1,6 @@
 package f1.fantaf1be.controller;
 
 import f1.fantaf1be.entity.Container;
-import f1.fantaf1be.entity.Gare;
 import f1.fantaf1be.service.ContainerService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -19,33 +18,33 @@ public class ContainerController {
     ContainerService containerService;
 
     @PostMapping("/update")
-    public ResponseEntity<Container> updateContainer(@RequestBody Container container){
-       Container tmpCont = containerService.updateContainer(container);
+    public ResponseEntity<Container> updateContainer(@RequestBody Container container) {
+        Container tmpCont = containerService.updateContainer(container);
         return ResponseEntity.ok(tmpCont);
     }
 
     @DeleteMapping("/delete/{id}")
-    public void deleteById(@PathVariable String id){
+    public void deleteById(@PathVariable String id) {
         containerService.deleteContainer(id);
     }
 
     @GetMapping("/getall/piloti")
-    public ResponseEntity<List<Container>> getAllPiloti(){
+    public ResponseEntity<List<Container>> getAllPiloti() {
         return ResponseEntity.ok(containerService.getAllPiloti());
     }
 
     @GetMapping("/getall/costruttori")
-    public ResponseEntity<List<Container>> getAllCostruttori(){
+    public ResponseEntity<List<Container>> getAllCostruttori() {
         return ResponseEntity.ok(containerService.getAllCostruttori());
     }
 
     @GetMapping("/getall/motori")
-    public ResponseEntity<List<Container>> getAllMotori(){
+    public ResponseEntity<List<Container>> getAllMotori() {
         return ResponseEntity.ok(containerService.getAllMotori());
     }
 
 
-    @GetMapping("/savecostruttori")
+    /*@GetMapping("/savecostruttori")
     public ResponseEntity<String> saveCostruttori(){
         containerService.saveCostruttori();
         return ResponseEntity.ok("Costruttori salvati");
@@ -61,6 +60,6 @@ public class ContainerController {
     public ResponseEntity<String> saveMotori(){
         containerService.saveMotori();
         return ResponseEntity.ok("Motori salvati");
-    }
+    }*/
 
 }
