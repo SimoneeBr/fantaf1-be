@@ -1,7 +1,9 @@
 package f1.fantaf1be.controller;
 
 import f1.fantaf1be.entity.Container;
+import f1.fantaf1be.entity.Lega;
 import f1.fantaf1be.service.ContainerService;
+import f1.fantaf1be.service.LegaService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -16,6 +18,9 @@ public class ContainerController {
 
     @Autowired
     ContainerService containerService;
+
+    @Autowired
+    LegaService legaService;
 
     @PostMapping("/update")
     public ResponseEntity<Container> updateContainer(@RequestBody Container container) {
@@ -42,6 +47,28 @@ public class ContainerController {
     public ResponseEntity<List<Container>> getAllMotori() {
         return ResponseEntity.ok(containerService.getAllMotori());
     }
+
+    @GetMapping("/getall/leagues-config")
+    public ResponseEntity<List<Lega>> getAllLeaguesConfig() {
+        return ResponseEntity.ok(legaService.getAllLeaguesConfig());
+    }
+
+    @GetMapping("/getall/leagues")
+    public ResponseEntity<List<Lega>> getAllLeagues() {
+        return ResponseEntity.ok(legaService.getAllLeghe());
+    }
+
+    @PostMapping("/updateLega")
+    public ResponseEntity<Lega> updateLega(@RequestBody Lega lega) {
+        Lega tmpLega = legaService.updateLega(lega);
+        return ResponseEntity.ok(tmpLega);
+    }
+
+    @DeleteMapping("/deleteLega/{id}")
+    public void deleteLegaById(@PathVariable String id) {
+        legaService.deleteLegaById(id);
+    }
+
 
 
     /*@GetMapping("/savecostruttori")
